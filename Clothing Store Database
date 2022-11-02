@@ -1,0 +1,24 @@
+CREATE TABLE clothing (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, size INTEGER, shipping_days INTEGER, returns INTEGER, price INTEGER);
+INSERT INTO clothing VALUES (1, "white skirt", 12,6,5,1,23); 
+INSERT INTO clothing VALUES (2,"black skirt", 11, 8, 5, 1,25);
+INSERT INTO clothing VALUES (3,"white polo", 10,6,5,1,20);
+INSERT INTO clothing VALUES (4, "black polo", 12, 8, 5, 1, 20);
+INSERT INTO clothing VALUES (5, "white shirt", 12, 6,5, 2, 21);
+INSERT INTO clothing VALUES (6, "black shirt", 15, 4, 5, 3, 22);
+INSERT INTO clothing VALUES (7, "white socks", 22, 0, 5, 0,6);
+INSERT INTO clothing VALUES (8, "black socks", 22, 0, 5,0,6);
+INSERT INTO clothing VALUES (9, "white jacket", 15, 10, 5, 3, 35);
+INSERT INTO clothing VALUES (10, "black jacket", 17, 10,5,3,35);
+INSERT INTO clothing VALUES (11, "white necklace", 40, 0, 5, 0, 10);
+INSERT INTO clothing VALUES (12, "black necklace", 35, 0,5,0, 11);
+INSERT INTO clothing VALUES (13,"white bra", 24, 2, 5, 1, 15);
+INSERT INTO clothing VALUES (14, "black bra", 26, 2, 5, 3, 15);
+INSERT INTO clothing VALUES (15,"white tank_top", 27, 6, 5, 2, 13);
+
+--display the database ordered by price.
+SELECT * FROM clothing ORDER BY price asc;
+
+--display the database with the clothing that has been returned
+SELECT * FROM clothing WHERE returns = 3
+
+
