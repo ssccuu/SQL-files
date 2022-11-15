@@ -1,0 +1,33 @@
+-- Example query (PostgreSQL)
+SELECT people.director, people.cast, titles.release_year, titles.rating
+FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+ON people.show_id = titles.show_id;
+
+--How many movie titles are there in the database?
+
+SELECT COUNT(type) AS count_movie
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type = 'Movie';
+
+--When was the most recent batch of tv shows and/or movies added to the database?
+SELECT show_id
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY date_added ASC;
+
+--List all the movies and tv shows in alphabetical order.
+SELECT *
+ FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ ORDER BY title ASC;
+
+--Who was the Director for the movie Bright Star?
+SELECT director
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_people" people
+ON titles.show_id=people.show_id
+WHERE titles.title='Bright Star' ;
+
+--What is the oldest movie in the database and what year was it made?
+SELECT type, MIN(release_year)
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+GROUP By type;
